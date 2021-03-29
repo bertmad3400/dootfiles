@@ -9,7 +9,8 @@
 alias \
 	cp="cp -iv" \
 	mv="mv -iv" \
-	rm="rm -vI" 
+	rm="rm -vI" \ 
+	mkd="mkdir -pv"
 
 # Prefer color output
 alias \
@@ -17,7 +18,8 @@ alias \
 	grep="grep --color=auto" \
 	diff="diff --color=auto" \
 	ccat="highlight --out-format=ansi" \
-	ip="ip -c"
+	ip="ip -c" \
+	tree="tree -C"
 
 #Different versions of the ls command
 alias \
