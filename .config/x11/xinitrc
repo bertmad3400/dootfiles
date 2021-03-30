@@ -3,4 +3,6 @@ do
         sleep 1
 done &
 taralli &
+setxkbmap dk &
+(sleep 1; xmodmap ${XDG_DATA_HOME:-$HOME/.local/share}/ttymaps.kmap 2>/dev/null) &
 while true; do exec ssh-agent dwm > /dev/null; done;
