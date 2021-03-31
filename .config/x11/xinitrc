@@ -4,6 +4,8 @@ do
 done &
 taralli &
 
+dunst &
+
 setxkbmap dk &
 (sleep 1; xmodmap ${XDG_DATA_HOME:-$HOME/.local/share}/ttymaps.kmap 2>/dev/null) &
 
