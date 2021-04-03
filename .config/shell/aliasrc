@@ -4,6 +4,9 @@
 # Use $XINITRC variable if file exists.
 [ -f "$XINITRC" ] && alias startx="startx $XINITRC"
 
+# For fixing missing XDG standards
+alias \
+	gdb="gdb -nh -x "${XDG_CONFIG_HOME:-$HOME/.config}"/gdb/init"
 
 # Verbosity and settings that you pretty much just always are going to want.
 alias \
