@@ -1,0 +1,10 @@
+#!/bin/sh
+
+bgPath="${XDG_DATA_HOME:-$HOME/.local/share}/bg" 
+newBgPath="$(readlink -f "$1")" && 
+	case "$(file --mime-type -b $newBgPath)" in
+		image/* ) cp "$(readlink -f "$1")" "$bgPath" && notify-send "Changing wallpaper..." "Changing it to $newBgPath" ;;
+		inode/directory ) newBgPath="$(readlink -f "$1")"/"$(ls "$(readlink -f "$1")" | grep ".*.\(jpg\|jpeg\|png\)" | shuf -n 1)" && cp "$newBgPath" "$bgPath" && notify-send "Changing wallpaper..." "The choosen wallpaper was $newBgPath";; 
+		* ) notify-send "Error" "The given file is not a valid image" ; exit 1;; 
+esac
+xwallpaper --zoom "$bgPath"
