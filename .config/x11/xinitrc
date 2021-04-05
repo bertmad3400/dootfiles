@@ -9,5 +9,7 @@ dunst &
 setxkbmap dk &
 (sleep 3; xmodmap ${XDG_DATA_HOME:-$HOME/.local/share}/ttymaps.kmap 2>/dev/null) &
 
+./fixScreens.sh 2> /dev/null
+
 picom -b
 while true; do exec ssh-agent dwm > /dev/null; done;
