@@ -43,13 +43,16 @@ alias \
 	gc="git commit" \
 	gcm="git commit -m" \
 	gd="git diff" \
+	gdl="git -c color.ui=always diff | less -REX" \
 	gm="git merge" \
 	gma="git merge --abort" \
+	gb="git branch" \
+	gco="git checkout" \
 	gps="git push" \
 	gpl="git pull" \
 	gfp="git fetch --all; git branch -D backup 2> /dev/null; git branch backup; git reset --hard" \
 	gs="git status" \
-	gsl="git status | less" \
+	gsl="git -c color.status=always status | less -REX" \
 	gl="git log" \
 	gl1="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all" \
 	gl2="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
