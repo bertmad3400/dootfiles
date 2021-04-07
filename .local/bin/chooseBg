@@ -13,7 +13,7 @@ identifyFile() {
 }
 
 bgPath="${XDG_DATA_HOME:-$HOME/.local/share}/bg"
-newBgPath="$(readlink -f "$1")" && identifyFile "$newBgPath" || "$([[ -a "${XDG_DATA_HOME:-$HOME/.local/share}/backgrounds" ]] && newBgPath="${XDG_DATA_HOME:-$HOME/.local/share}/backgrounds" && identifyFile "$newBgPath" )"
+newBgPath="$(readlink -f "$1")" && identifyFile "$newBgPath" || $([[ -a "${XDG_DATA_HOME:-$HOME/.local/share}/backgrounds" ]] && newBgPath="${XDG_DATA_HOME:-$HOME/.local/share}/backgrounds" && identifyFile "$newBgPath" )
 
 echo "$newBgPath"
 
