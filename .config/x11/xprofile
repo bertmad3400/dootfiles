@@ -1,0 +1,16 @@
+while xsetroot -name "`date` `uptime | sed 's/.*,//'`"
+do
+        sleep 1
+done & # For displaying the date on the dmenu bar
+
+taralli &			# For wrapping screens
+dunst &				# For displaying notifications
+picom -b &			# Compositor for transparency
+chooseBg &			# Local script for changing the background
+
+./fixScreens.sh 2> /dev/null	# Script for fixing refresh rate, probably not present
+
+setxkbmap dk &			# For using a danish keyboard layout
+xset r rate 300 50 &		# For speeding up keyboard presses
+(sleep 3; xmodmap ${XDG_DATA_HOME:-$HOME/.local/share}/ttymaps.kmap 2>/dev/null) & # For switching caps and escape
+

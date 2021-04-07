@@ -1,15 +1,19 @@
-while xsetroot -name "`date` `uptime | sed 's/.*,//'`"
-do
-        sleep 1
-done &
-taralli &
+#!/bin/sh
 
-dunst &
+# I didn't write this, blatantly stolen from Luke Smith
 
-setxkbmap dk &
-(sleep 3; xmodmap ${XDG_DATA_HOME:-$HOME/.local/share}/ttymaps.kmap 2>/dev/null) &
+# xinitrc runs automatically when you run startx.
 
-./fixScreens.sh 2> /dev/null
+# There are some small but important commands that need to be run when we start
+# the graphical environment. There is a link to this file in ~/.xprofile
+# because that file is run automatically if someone uses a display manager
+# (login screen) and so they are needed there. To prevent doubling up commands,
+# I source them here with the line below.
 
-picom -b
-while true; do exec ssh-agent dwm > /dev/null; done;
+if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/x11/xprofile" ]; then
+	. "${XDG_CONFIG_HOME:-$HOME/.config}/x11/xprofile"
+else
+	. "$HOME/.xprofile"
+fi
+
+ssh-agent dwm
