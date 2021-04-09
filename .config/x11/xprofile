@@ -7,6 +7,7 @@ taralli &			# For wrapping screens
 dunst &				# For displaying notifications
 picom -b &			# Compositor for transparency
 chooseBg &			# Local script for changing the background
+unclutter &			# For hidding mouse when not used
 
 ./fixScreens.sh 2> /dev/null	# Script for fixing refresh rate, probably not present
 
