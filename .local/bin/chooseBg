@@ -1,19 +1,19 @@
 #!/bin/sh
 
 
-changeWallpaper(){ cp "$newBgPath" "$bgPath" && notify-send "Changing wallpaper..." "Changing it to $newBgPath"; }
+changeWallpaper(){ cp "$newBgPath" "$bgPath" && notify-send "Changing wallpaper..." "Changing it to $newBgPath" || notify-send "Couldn't find wallpaper at supplied path" "Defaulting to $bgPath"; }
 
 
 identifyFile() {
 	case "$(file --mime-type -b $newBgPath)" in
 		image/* ) changeWallpaper;; 
-		inode/directory ) newBgPath="$(readlink -f "$1")"/"$(ls "$(readlink -f "$1")" | grep ".*.\(jpg\|jpeg\|png\)" | shuf -n 1)" && changeWallpaper;; 
+		inode/directory ) newBgPath="$(readlink -f "$1")"/"$(ls "$(readlink -f $1)" | grep ".*.\(jpg\|jpeg\|png\)" | shuf -n 1)" && changeWallpaper;; 
 		* ) notify-send "Error" "The given file is not a valid image" ; exit 1;; 
 	esac 
 }
 
 bgPath="${XDG_DATA_HOME:-$HOME/.local/share}/bg"
-newBgPath="$(readlink -f "$1")" && identifyFile "$newBgPath" || $([[ -a "${XDG_DATA_HOME:-$HOME/.local/share}/backgrounds" ]] && newBgPath="${XDG_DATA_HOME:-$HOME/.local/share}/backgrounds" && identifyFile "$newBgPath" )
+newBgPath="$(readlink -f "$1")" && identifyFile "$newBgPath" || { [ -d "${XDG_DATA_HOME:-$HOME/.local/share}/backgrounds" ] && newBgPath="${XDG_DATA_HOME:-$HOME/.local/share}/backgrounds" && identifyFile "$newBgPath" || notify-send "It doesn't seem like there's any wallpapers in the default location" "Simply defaulting to $bgPath"; }
 
 echo "$newBgPath"
 
