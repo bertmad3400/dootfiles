@@ -4,6 +4,9 @@
 # Use $XINITRC variable if file exists.
 [ -f "$XINITRC" ] && alias startx="startx $XINITRC"
 
+# Use alias for doas if present, otherwise use it for sudo
+[ -x "$(command -v doas)" ] && alias please="doas --" || alias please="sudo"
+
 # For fixing missing XDG standards
 alias \
 	gdb="gdb -nh -x "${XDG_CONFIG_HOME:-$HOME/.config}"/gdb/init"
