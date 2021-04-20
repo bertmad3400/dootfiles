@@ -53,6 +53,7 @@ alias \
 	gco="git checkout" \
 	gps="git push" \
 	gpl="git pull" \
+	gls="git ls-files" \
 	gfp="git fetch --all; git branch -D backup 2> /dev/null; git branch backup; git reset --hard" \
 	gs="git status" \
 	gsl="git -c color.status=always status | less -REX" \
