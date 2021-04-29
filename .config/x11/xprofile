@@ -1,4 +1,4 @@
-while xsetroot -name "`date` `uptime | sed 's/.*,//'`"
+while xsetroot -name "$(date | sed 's/^/ /')"
 do
         sleep 1
 done & # For displaying the date on the dmenu bar
