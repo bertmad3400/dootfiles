@@ -32,6 +32,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     "Color theme
     Plug 'morhetz/gruvbox'
 
+	"Status bar
+	Plug 'vim-airline/vim-airline'
+
 call plug#end()
 
 " set the colorscheme
