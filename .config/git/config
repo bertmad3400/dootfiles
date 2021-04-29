@@ -1,0 +1,12 @@
+[user]
+	email = skrivtilbertram@gmail.com
+	name = bertmad3400
+	signingkey = 445888405BD5DFF138BDDED619D7886778EFFBFB
+[core]
+	editor = vim
+[commit]
+	gpgsign = true
+[pull]
+	rebase = true
+[pager]
+	branch = false
