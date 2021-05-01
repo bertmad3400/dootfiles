@@ -1,6 +1,8 @@
+set nocompatible "Making sure vim starts without honering vi support
 set encoding=utf-8
 set number relativenumber "enable absolute numbering of current line and relative of other lines
 syntax enable
+set breakindent "for having the wrapping lines use the indention level
 set swapfile
 set scrolloff=7
 set backspace=indent,eol,start
