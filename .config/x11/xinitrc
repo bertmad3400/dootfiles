@@ -16,4 +16,6 @@ else
 	. "$HOME/.xprofile"
 fi
 
+"${XDG_CONFIG_HOME:-$HOME/.config}/x11/fixScreens.sh" 2> /dev/null & # Script for fixing refresh rate, probably not present
+
 ssh-agent dwm
