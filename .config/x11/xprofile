@@ -1,4 +1,4 @@
-while xsetroot -name "$(date | sed 's/^/ /')"
+while xsetroot -name "$(date +"%A - %H:%M - %d %B")   " # For setting the date in the statusbar, adding space to counteract that the bar is made a little shorter by padding
 do
         sleep 1
 done & # For displaying the date on the dmenu bar
