@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# The purpose of this small program is just simply to check if files that exist in one directory (and it's subdirectories) also exist in another directory. It was created for when you're in a situation where you have two drives, one of which you want to wipe, and the other one that is housing all your data and you don't know whether you have transfered all the files from the drive you want to wipe to the other. Is it the fastest possible script for this? Absolutly not. It's hard to describe just how un-optimized this script is, but it will get the job done, and if you pass it "v" as the 3. argument, it will instead of printing a little friendly error message to STDERR, print a only the relative paths to the files to STDOUT, so you can pass them to another programs (in case you want to check if a few images is just garbage or actually worth keeping, or something like that.) 
+
+[ ! -z $1 ] || { echo "Usages: checkFileExistence (path with known to exist files) (path for checking if files exist) [v]"; exit 1; }
+
+currentFiles="$(find ${1?"missing: the path with the known files"} -type f)"
+
+for file in $currentFiles
+do
+	filename="$(echo $file | sed "s/.*\///")"
+	[ $(find ${2?"missing: the path for checking for files in"} -name "$filename" | wc -l) -eq 0 ] && { [ "$3" = "v" ] && echo "$file" || echo "Didn't find $filename" >&2; }
+done
