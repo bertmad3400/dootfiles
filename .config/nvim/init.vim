@@ -37,6 +37,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 	"Status bar
 	Plug 'vim-airline/vim-airline'
 
+	"For quick horisontal movement by higlighting uniq characthers
+    Plug 'unblevable/quick-scope'
+
 call plug#end()
 
 " set the colorscheme
