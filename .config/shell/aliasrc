@@ -18,6 +18,9 @@ alias \
 	rm="rm -vI" \ 
 	mkd="mkdir -pv"
 
+# For removing files and folders with the immutable bit set
+alias rmi='removeImmutable () {sudo chattr -i "$1"; sudo rm -rf "$1";}; removeImmutable'
+
 # Prefer color output
 alias \
 	ls="ls -hN --color=auto --group-directories-first" \
@@ -56,6 +59,7 @@ alias \
 	gls="git ls-files" \
 	gfp="git fetch --all; git branch -D backup 2> /dev/null; git branch backup; git reset --hard" \
 	gs="git status" \
+	gss="git -c color.status=always status | head -n 30" \
 	gsl="git -c color.status=always status | less -REX" \
 	gl="git log" \
 	gl1="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all" \
@@ -64,8 +68,3 @@ alias \
 # Also git, but for bare repo
 alias doot-git='/usr/bin/git --git-dir=$HOME/.dootfiles.git/ --work-tree=$HOME'
 alias doot-config='doot-git config --local status.showUntrackedFiles no'
-
-
-# And this is just cause why not?
-alias \
-	sl="sl | lolcat"
