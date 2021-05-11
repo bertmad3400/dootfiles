@@ -1,22 +1,15 @@
 #!/bin/sh
 
-# A dmenu wrapper script for system functions.
-# Written by Luke Smith, not mine
-# For non-systemd init systems.
-case "$(readlink -f /sbin/init)" in
-	*runit*) hib="sudo -A zzz" ;;
-	*openrc*) reb="sudo -A openrc-shutdown -r"; shut="sudo -A openrc-shutdown -p 0" ;;
-esac
+# Script used for quickly changing system state, either by locking, shutting it down or something else. Uses dmenu to let the user choose
 
 cmds="\
 lock		slock
+shutdown	sudo poweroff
+reboot		sudo reboot
+display off 	xset dpms force off
 leave dwm	kill -TERM $(pgrep -u $USER "\bdwm$")
-renew dwm	kill -HUP $(pgrep -u $USER "\bdwm$")
-hibernate	slock ${hib:-systemctl suspend-then-hibernate -i}
-reboot		${reb:-sudo -A reboot}
-shutdown	${shut:-sudo -A shutdown -h now}
-display off 	xset dpms force off"
+hibernate	slock systemctl suspend-then-hibernate -i"
 
 choice="$(echo "$cmds" | cut -d'	' -f 1 | dmenu -x 10 -y 10 -z 1900)" || exit 1
 
-`echo "$cmds" | grep "^$choice	" | cut -d '	' -f2-`
+eval "$(echo "$cmds" | grep "^$choice" | cut -d '	' -f2-)"
