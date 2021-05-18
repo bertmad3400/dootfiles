@@ -13,6 +13,8 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XINITRC="${XDG_CONFIG_HOME:-$HOME/.config}/x11/xinitrc"
 
+export DOT_SAGE="${XDG_CONFIG_HOME:-$HOME/.config}"/sage
+
 export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
 export GDBHISTFILE="${XDG_DATA_HOME:-$HOME/.config}"/gdb/history
 
