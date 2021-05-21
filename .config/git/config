@@ -4,12 +4,9 @@
 	signingkey = 445888405BD5DFF138BDDED619D7886778EFFBFB
 [core]
 	editor = nvim
-	pager = diff-so-fancy | less --tabs=4 -RFX
 [commit]
 	gpgsign = true
 [pull]
 	rebase = true
 [pager]
 	branch = false
-[interactive]
-	diffFilter = diff-so-fancy --patch
