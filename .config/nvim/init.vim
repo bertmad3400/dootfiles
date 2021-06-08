@@ -40,6 +40,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 	"For quick horisontal movement by higlighting uniq characthers
     Plug 'unblevable/quick-scope'
 
+	"For having vertical lines on indents
+	Plug 'lukas-reineke/indent-blankline.nvim', { 'branch': 'lua' }
+
 call plug#end()
 
 " set the colorscheme
@@ -48,3 +51,6 @@ colorscheme gruvbox
 if (has("termguicolors"))
 	set termguicolors
 endif
+
+"Chang the characther used for indent lines, based on level of indention
+let g:indent_blankline_char_list = ['|', '¦', '┆', '┊']
