@@ -43,6 +43,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 	"For having vertical lines on indents
 	Plug 'lukas-reineke/indent-blankline.nvim'
 
+	" For intergrating with discord 'now playing' rich presence
+	Plug 'andweeb/presence.nvim'
+
 call plug#end()
 
 " set the colorscheme
