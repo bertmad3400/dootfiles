@@ -41,7 +41,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'unblevable/quick-scope'
 
 	"For having vertical lines on indents
-	Plug 'lukas-reineke/indent-blankline.nvim', { 'branch': 'lua' }
+	Plug 'lukas-reineke/indent-blankline.nvim'
 
 call plug#end()
 
