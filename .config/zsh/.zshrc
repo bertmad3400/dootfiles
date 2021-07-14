@@ -65,6 +65,9 @@ zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 precmd() { echo -ne '\e[5 q' ; print -Pn "\e]2;%n@%M | ST | %~\a" ; } # Use beam shape cursor for each new prompt.
 
+# Other custom keybinds that has nothing to do with vim mode
+bindkey "^S" history-incremental-search-backward
+
 
 # Load zsh syntax highlighting
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
