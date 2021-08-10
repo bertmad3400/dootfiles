@@ -73,3 +73,5 @@ bindkey "^S" history-incremental-search-backward
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
 # Suggest aliases when not used
 source /usr/share/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh 2>/dev/null
+# Easier navigation
+eval "$(lua /usr/share/z.lua/z.lua --init zsh enhanced)"
