@@ -41,6 +41,7 @@ alias \
 alias \
 	ka="killall" \
 	map="setxkbmap"
+	e="$EDITOR"
 
 # For testing the internet connection
 alias \
