@@ -7,6 +7,7 @@ taralli &			# For wrapping screens
 dunst &				# For displaying notifications
 picom -b &			# Compositor for transparency
 chooseBg &			# Local script for changing the background
+batsignal -b &		# Warning when battery is low
 
 setxkbmap dk -option caps:escape_shifted_capslock &	# For using a danish keyboard layout and remap caps to escape
 xset r rate 300 50 &		# For speeding up keyboard presses
