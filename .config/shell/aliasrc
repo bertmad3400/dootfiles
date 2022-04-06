@@ -42,6 +42,7 @@ alias \
 	ka="killall" \
 	map="setxkbmap"
 	e="$EDITOR"
+	clip="xclip -selection clipboard"
 
 # For testing the internet connection
 alias \
