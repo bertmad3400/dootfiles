@@ -10,5 +10,5 @@ chooseBg &			# Local script for changing the background
 batsignal -b &		# Warning when battery is low
 
 setxkbmap dk -option caps:escape_shifted_capslock &	# For using a danish keyboard layout and remap caps to escape
-xset r rate 300 50 &		# For speeding up keyboard presses
+xset r rate 150 80 &		# For speeding up keyboard presses
 setxkbmap -option caps:escape_shifted_capslock & # For switching caps and escape
