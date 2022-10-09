@@ -50,6 +50,11 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 	" For intergrating with discord 'now playing' rich presence
 	Plug 'andweeb/presence.nvim'
 
+	" For syntax highlighting during JS and svelte development
+	Plug 'evanleck/vim-svelte'
+	Plug 'pangloss/vim-javascript'
+	Plug 'HerringtonDarkholme/yats.vim'
+
 call plug#end()
 
 " set the colorscheme
