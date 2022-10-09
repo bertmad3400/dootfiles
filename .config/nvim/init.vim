@@ -13,6 +13,10 @@ set noexpandtab
 set autoindent
 set fileformat=unix
 
+" For enabling conditional case insesitive search
+set ignorecase
+set smartcase
+
 let mapleader="," "map leader key to comma
 set clipboard+=unnamedplus "copy to system clipboard
 
