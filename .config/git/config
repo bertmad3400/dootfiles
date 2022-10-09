@@ -12,3 +12,24 @@
 	branch = false
 [init]
 	defaultBranch = master
+[color]
+	ui = true
+
+[alias]
+	a = add
+	c = commit
+	cm = commit -m
+	d = diff
+	m = merge
+	ma = merge --abort
+	b = branch
+	ps = push
+	pl = pull
+	ls = ls-files
+	s = status
+	l = log
+	st = stash
+	sta = stash apply
+	r = remote
+	rs = remote set-url
+	rg = remote get-url

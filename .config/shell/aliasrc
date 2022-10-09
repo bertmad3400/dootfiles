@@ -37,48 +37,30 @@ alias \
 	la="ls -Ah"
 	
 
+# Aliases used for git:
+alias \
+	gdl="git -c color.ui=always diff | less -REX" \
+	gfp="git fetch --all && git branch -D backup 2> /dev/null; git branch backup && git reset --hard && git pull" \ # A force pull with backup
+	gss="git -c color.status=always status | head -n 30" \
+	gsl="git -c color.status=always status | less -REX" \
+	gl1="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all" \
+	gl2="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all" \
+	gcount="git log --oneline | wc -l" \
+
+
 # These common commands are just too long! Abbreviate them.
 alias \
 	ka="killall" \
-	map="setxkbmap"
-	e="$EDITOR"
-	clip="xclip -selection clipboard"
+	map="setxkbmap" \
+	e="$EDITOR" \
+	clip="xclip -selection clipboard" \
+	g="git "
 
 # For testing the internet connection
 alias \
 	ts="ping 1.1.1.1" \
 	tsd="ping google.com"
 
-# Aliases used for git:
-alias \
-	ga="git add" \
-	gapa="git add --patch" \
-	gc="git commit" \
-	gcm="git commit -m" \
-	gd="git diff" \
-	gdl="git -c color.ui=always diff | less -REX" \
-	gm="git merge" \
-	gma="git merge --abort" \
-	gb="git branch" \
-	gco="git checkout" \
-	gps="git push" \
-	gpl="git pull" \
-	gls="git ls-files" \
-	gfp="git fetch --all; git branch -D backup 2> /dev/null; git branch backup; git reset --hard" \
-	gs="git status" \
-	gss="git -c color.status=always status | head -n 30" \
-	gsl="git -c color.status=always status | less -REX" \
-	gl="git log" \
-	gl1="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all" \
-	gl2="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all" \
-	gst="git stash" \
-	gsta="git stash apply" \
-	gcount="git log --oneline | wc -l" \
-	gr="git remote" \
-	grs="git remote set-url" \
-	grg="git remote get-url"
-
-
 # Also git, but for bare repo
-alias doot-git='/usr/bin/git --git-dir=$HOME/.dootfiles.git/ --work-tree=$HOME'
-alias doot-config='doot-git config --local status.showUntrackedFiles no'
+alias dot-git='/usr/bin/git --git-dir=$HOME/.dootfiles.git/ --work-tree=$HOME'
+alias dot-config='doot-git config --local status.showUntrackedFiles no'
