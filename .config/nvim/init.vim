@@ -20,6 +20,15 @@ set smartcase
 let mapleader="," "map leader key to comma
 set clipboard+=unnamedplus "copy to system clipboard
 
+" For managin splits
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+set splitbelow
+set splitright
+
+
 " auto-install vim-plug if not present
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
