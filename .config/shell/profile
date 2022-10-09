@@ -3,7 +3,7 @@
 unsetopt PROMPT_SP
 
 export EDITOR="nvim"
-export TERMINAL="st"
+export TERMINAL="alacritty"
 export BROWSER="firefox"
 
 export MANPAGER="nvim +Man\!"

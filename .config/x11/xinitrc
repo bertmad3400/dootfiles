@@ -19,4 +19,4 @@ fi
 "${XDG_CONFIG_HOME:-$HOME/.config}/x11/fixScreens.sh" 2> /dev/null & # Script for fixing refresh rate, probably not present
 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
 
-ssh-agent dwm
+ssh-agent awesome

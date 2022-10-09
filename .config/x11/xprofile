@@ -1,14 +1,8 @@
-while xsetroot -name "$(date +"%A - %H:%M - %d %B"); $(cat /sys/class/power_supply/BAT1/capacity)%    " # For setting the date in the statusbar, adding space to counteract that the bar is made a little shorter by padding
-do
-        sleep 1
-done & # For displaying the date on the dmenu bar
+xset r rate 150 80 &		# For speeding up keyboard presses
+setxkbmap dk -option caps:escape_shifted_capslock & # For switching caps and escape
 
 taralli &			# For wrapping screens
 dunst &				# For displaying notifications
 picom -b &			# Compositor for transparency
-chooseBg &			# Local script for changing the background
 batsignal -b &		# Warning when battery is low
-
-setxkbmap dk -option caps:escape_shifted_capslock &	# For using a danish keyboard layout and remap caps to escape
-xset r rate 150 80 &		# For speeding up keyboard presses
-setxkbmap -option caps:escape_shifted_capslock & # For switching caps and escape
+sxhkd &				# For WM indepenten keyboard shortcuts
