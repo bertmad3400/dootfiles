@@ -1,15 +1,15 @@
 #!/bin/sh
 
-# Script used for quickly changing system state, either by locking, shutting it down or something else. Uses dmenu to let the user choose
+# Script used for quickly changing system state, either by locking, shutting it down or something else. Uses rofi to let the user choose
 
 cmds="\
 lock		slock
-shutdown	sudo poweroff
-reboot		sudo reboot
-display off 	xset dpms force off
-leave dwm	kill -TERM $(pgrep -u $USER "\bdwm$")
+shutdown	poweroff
+reboot		reboot
+display off	xset dpms force off
+leave wm	kill -TERM $(pgrep -u $USER "\bawesome$")
 hibernate	slock systemctl suspend-then-hibernate -i"
 
-choice="$(echo "$cmds" | cut -d'	' -f 1 | dmenu -x 10 -y 10 -z 1900)" || exit 1
+choice="$(echo "$cmds" | cut -d'	' -f 1 | rofi -dmenu )" || exit 1
 
 eval "$(echo "$cmds" | grep "^$choice" | cut -d '	' -f2-)"
