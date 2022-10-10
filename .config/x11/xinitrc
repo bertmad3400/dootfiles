@@ -10,6 +10,8 @@
 # (login screen) and so they are needed there. To prevent doubling up commands,
 # I source them here with the line below.
 
+eval `ssh-agent -s`
+
 if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/x11/xprofile" ]; then
 	. "${XDG_CONFIG_HOME:-$HOME/.config}/x11/xprofile"
 else
@@ -19,4 +21,4 @@ fi
 "${XDG_CONFIG_HOME:-$HOME/.config}/x11/fixScreens.sh" 2> /dev/null & # Script for fixing refresh rate, probably not present
 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
 
-ssh-agent awesome
+awesome

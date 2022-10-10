@@ -5,4 +5,4 @@ taralli &			# For wrapping screens
 dunst &				# For displaying notifications
 picom -b &			# Compositor for transparency
 batsignal -b &		# Warning when battery is low
-sxhkd &				# For WM indepenten keyboard shortcuts
+sxhkd &				# For WM independent keyboard shortcuts
