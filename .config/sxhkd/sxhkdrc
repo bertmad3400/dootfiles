@@ -1,0 +1,41 @@
+super + Escape
+	pkill -USR1 sxhkd
+
+super + Return
+	$TERMINAL
+
+super + ctrl + {_,shift +} {w, p}
+	firefox { , -P default} { , --private-window}
+
+super + ctrl + {k,d,m,v}
+	{keepassxc,discord,minecraft-launcher,virtualbox}
+
+{_, shift +, ctrl +} super
+	scrot -e 'xclip -selection clipboard -t image/png -i $f' {-u, -s -f, } $HOME/Screenshots/{Focused,Selection,Full}/%Y-%m-%d_%H-%M-%S.png
+
+{super + d,XF86Search}
+	rofi -show drun
+
+super + shift + d
+	rofi -show run
+
+super + s
+	rofi -show ssh
+
+XF86AudioMute
+	pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+XF86AudioMicMute
+	pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+{_,shift + ,super + }XF86Audio{Lower,Raise}Volume
+	pactl set-sink-volume @DEFAULT_SINK@ {-3,-1,-10,+3,+1,+10}%
+
+{_,shift + ,super + }XF86MonBrightness{Down,Up}
+	backlight_control {-10,-1,-100,+10,+1,+100}
+
+super + {_,shift +, ctrl + } {minus,plus}
+	backlight_control {-10,-1,-100,+10,+1,+100}
+
+ctrl + shift + super + space
+	dunstctl close -all
