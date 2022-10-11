@@ -10,7 +10,7 @@ super + ctrl + {_,shift +} {w, p}
 super + ctrl + {k,d,m,v}
 	{keepassxc,discord,minecraft-launcher,virtualbox}
 
-{_, shift +, ctrl +} super
+{_, shift +, ctrl +} super + s
 	scrot -e 'xclip -selection clipboard -t image/png -i $f' {-u, -s -f, } $HOME/Screenshots/{Focused,Selection,Full}/%Y-%m-%d_%H-%M-%S.png
 
 {super + d,XF86Search}
@@ -19,7 +19,7 @@ super + ctrl + {k,d,m,v}
 super + shift + d
 	rofi -show run
 
-super + s
+super + shift + ctrl + s
 	rofi -show ssh
 
 XF86AudioMute
