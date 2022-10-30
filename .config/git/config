@@ -33,3 +33,5 @@
 	r = remote
 	rs = remote set-url
 	rg = remote get-url
+	co = checkout
+	pla = pull --autostash --ff-only
