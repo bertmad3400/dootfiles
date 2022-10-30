@@ -6,3 +6,4 @@ dunst &				# For displaying notifications
 picom -b &			# Compositor for transparency
 batsignal -b &		# Warning when battery is low
 sxhkd &				# For WM independent keyboard shortcuts
+nm-applet &			# For wifi and ethernet
