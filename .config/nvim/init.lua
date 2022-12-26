@@ -1,6 +1,9 @@
 vim.g.mapleader = ","
 
-require("plugins")
-require("keymaps")
-require("settings")
-require("theme")
+local plugins = require('plugins')
+plugins.install()
+plugins.init()
+
+require("keymaps").map()
+require("options").init()
+require("theme").init()
