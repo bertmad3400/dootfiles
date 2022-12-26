@@ -1,27 +1,31 @@
-local defaults = { noremap=true, silent=true }
 
-local map = vim.api.nvim_set_keymap
+local map = vim.keymap.set
 
--- For managin splits
-map('n', '<C-J>', '<C-W><C-J>', defaults)
-map('n', '<C-K>', '<C-W><C-K>', defaults)
-map('n', '<C-L>', '<C-W><C-L>', defaults)
-map('n', '<C-H>', '<C-W><C-H>', defaults)
+-- For managing buffers
+map('n', 'zq', '<cmd>Bwipeout<cr>')
+map('n', 'ZQ', '<cmd>bufdo :Bwipeout<cr>')
+map('n', 'ZE', '<cmd>qa<cr>')
+
+-- For managing splits
+map('n', '<C-J>', '<C-W><C-J>')
+map('n', '<C-K>', '<C-W><C-K>')
+map('n', '<C-L>', '<C-W><C-L>')
+map('n', '<C-H>', '<C-W><C-H>')
 
 -- For telescope
-vim.keymap.set('n', '<leader>fo', '<cmd>Telescope buffers<cr>')
-vim.keymap.set('n', '<leader><space>', '<cmd>Telescope oldfiles<cr>')
-vim.keymap.set('n', '<leader>fc', '<cmd>Telescope current_buffer_fuzzy_find<cr>')
-vim.keymap.set('n', '<leader>ff', '<cmd>Telescope find_files<cr>')
-vim.keymap.set('n', '<leader>fg', '<cmd>Telescope live_grep<cr>')
-vim.keymap.set('n', '<leader>fd', '<cmd>Telescope diagnostics<cr>')
+map('n', '<leader>fo', '<cmd>Telescope buffers<cr>')
+map('n', '<leader><space>', '<cmd>Telescope oldfiles<cr>')
+map('n', '<leader>fc', '<cmd>Telescope current_buffer_fuzzy_find<cr>')
+map('n', '<leader>ff', '<cmd>Telescope find_files<cr>')
+map('n', '<leader>fg', '<cmd>Telescope live_grep<cr>')
+map('n', '<leader>fd', '<cmd>Telescope diagnostics<cr>')
 
 -- For the bufferline
 for i = 1, 9 do
-  vim.keymap.set('n', '<leader>' .. i, function()
+  map('n', '<leader>' .. i, function()
     require("bufferline").go_to_buffer(i, true)
   end)
 end
 
-vim.keymap.set('n', '<leader>l', '<cmd>bnext<cr>')
-vim.keymap.set('n', '<leader>h', '<cmd>bprev<cr>')
+map('n', '<leader>l', '<cmd>bnext<cr>')
+map('n', '<leader>h', '<cmd>bprev<cr>')

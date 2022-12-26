@@ -19,6 +19,8 @@ vim.opt.clipboard:append{ "unnamedplus" } -- copy to system clipboard
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
+vim.opt.hidden = true -- For allowing switching of buffers without saving or discarding
+
 -- Lualine
 require('lualine').setup({ options = {
 		theme = "gruvbox",
@@ -56,6 +58,7 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 require('nvim-tree').setup({
+  open_on_setup = true,
   hijack_cursor = false,
   on_attach = function(bufnr)
     local bufmap = function(lhs, rhs, desc)

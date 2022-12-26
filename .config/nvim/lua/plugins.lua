@@ -36,7 +36,7 @@ return require('packer').startup(function(use)
 		run = 'make'
 	}
 
-	use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
+	use {'akinsho/bufferline.nvim', requires = {'nvim-tree/nvim-web-devicons', 'moll/vim-bbye'} }
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
