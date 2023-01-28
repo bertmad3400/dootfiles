@@ -2,7 +2,6 @@ local M = {}
 
 function M.init()
 	vim.opt.encoding = "utf-8"
-	vim.opt.relativenumber = true -- enable absolute numbering of current line and relative of other lines
 	vim.opt.breakindent = true -- for having the wrapping lines use the indention level
 
 	vim.opt.scrolloff = 7
@@ -29,6 +28,8 @@ function M.init()
 	-- Disable default file-explorer as we use nvim-tree
 	vim.g.loaded_netrw = 1
 	vim.g.loaded_netrwPlugin = 1
+
+	vim.opt.guifont = "monospace:h8"
 end
 
 return M
