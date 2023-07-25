@@ -1,10 +1,2 @@
-vim.g.mapleader = ","
-
-local plugins = require('plugins')
-plugins.install()
-plugins.init()
-
-require("keymaps").map()
-require("options").init()
-require("theme").init()
-require("lsp").init()
+-- bootstrap lazy.nvim, LazyVim and your plugins
+require("config.lazy")
