@@ -20,6 +20,7 @@ require("awful.hotkeys_popup.keys")
 
 local batteryarc_widget = require("awesome-wm-widgets.batteryarc-widget.batteryarc")
 local brightness_widget = require("awesome-wm-widgets.brightness-widget.brightness")
+local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -233,6 +234,12 @@ awful.screen.connect_for_each_screen(function(s)
 		s.mytasklist, -- Middle widget
 		{ -- Right widgets
 			layout = wibox.layout.fixed.horizontal,
+
+			cpu_widget({
+				width = 50,
+				step_width = 4,
+				step_spacing = 0,
+			}),
 
 			brightness_widget({
 				type = "arc",
