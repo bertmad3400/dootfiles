@@ -18,14 +18,17 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
-local batteryarc_widget = require("awesome-wm-widgets.batteryarc-widget.batteryarc")
-local brightness_widget = require("awesome-wm-widgets.brightness-widget.brightness")
-local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
-local fs_widget = require("awesome-wm-widgets.fs-widget.fs-widget")
 local net_speed_widget = require("awesome-wm-widgets.net-speed-widget.net-speed")
+local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
+
+local fs_widget = require("awesome-wm-widgets.fs-widget.fs-widget")
 local ram_widget = require("awesome-wm-widgets.ram-widget.ram-widget")
-local todo_widget = require("awesome-wm-widgets.todo-widget.todo")
+
 local volume_widget = require("awesome-wm-widgets.pactl-widget.volume")
+local brightness_widget = require("awesome-wm-widgets.brightness-widget.brightness")
+local batteryarc_widget = require("awesome-wm-widgets.batteryarc-widget.batteryarc")
+
+local todo_widget = require("awesome-wm-widgets.todo-widget.todo")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -227,6 +230,8 @@ awful.screen.connect_for_each_screen(function(s)
 	-- Create the wibox
 	s.mywibox = awful.wibar({ position = "top", screen = s })
 
+	local separator = wibox.widget.textbox("    |    ")
+
 	-- Add widgets to the wibox
 	s.mywibox:setup({
 		layout = wibox.layout.align.horizontal,
@@ -239,13 +244,10 @@ awful.screen.connect_for_each_screen(function(s)
 		s.mytasklist, -- Middle widget
 		{ -- Right widgets
 			layout = wibox.layout.fixed.horizontal,
+			spacing = 4,
 
 			net_speed_widget({
 				width = 50,
-			}),
-
-			fs_widget({
-				widget_width = 40,
 			}),
 
 			cpu_widget({
@@ -254,9 +256,15 @@ awful.screen.connect_for_each_screen(function(s)
 				step_spacing = 0,
 			}),
 
+			separator,
+
+			fs_widget({
+				widget_width = 40,
+			}),
+
 			ram_widget(),
 
-			todo_widget(),
+			separator,
 
 			volume_widget({
 				widget_type = "arc",
@@ -275,6 +283,12 @@ awful.screen.connect_for_each_screen(function(s)
 				arc_thickness = 2,
 				size = 20,
 			}),
+
+			separator,
+
+			todo_widget(),
+
+			separator,
 
 			wibox.widget.systray(),
 			mytextclock,
