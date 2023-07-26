@@ -25,6 +25,7 @@ local fs_widget = require("awesome-wm-widgets.fs-widget.fs-widget")
 local net_speed_widget = require("awesome-wm-widgets.net-speed-widget.net-speed")
 local ram_widget = require("awesome-wm-widgets.ram-widget.ram-widget")
 local todo_widget = require("awesome-wm-widgets.todo-widget.todo")
+local volume_widget = require("awesome-wm-widgets.pactl-widget.volume")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -256,6 +257,10 @@ awful.screen.connect_for_each_screen(function(s)
 			ram_widget(),
 
 			todo_widget(),
+
+			volume_widget({
+				widget_type = "arc",
+			}),
 
 			brightness_widget({
 				type = "arc",
