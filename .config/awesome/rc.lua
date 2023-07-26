@@ -23,6 +23,7 @@ local brightness_widget = require("awesome-wm-widgets.brightness-widget.brightne
 local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
 local fs_widget = require("awesome-wm-widgets.fs-widget.fs-widget")
 local net_speed_widget = require("awesome-wm-widgets.net-speed-widget.net-speed")
+local ram_widget = require("awesome-wm-widgets.ram-widget.ram-widget")
 local todo_widget = require("awesome-wm-widgets.todo-widget.todo")
 
 -- {{{ Error handling
@@ -251,6 +252,8 @@ awful.screen.connect_for_each_screen(function(s)
 				step_width = 4,
 				step_spacing = 0,
 			}),
+
+			ram_widget(),
 
 			todo_widget(),
 
